@@ -1,5 +1,5 @@
 // Assignment code here
-var pwCriteria = window.alert("Please choose your password criteria.");
+//var pwCriteria = window.alert("Please choose your password criteria.");
 var pwLength = 8 <= 128
 var pwUppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var pwLowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
