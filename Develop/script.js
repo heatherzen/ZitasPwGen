@@ -9,70 +9,73 @@ var specialCharacters = "!@#$%&*";
     
 window.alert("Please choose your password criteria.")
     
-    funtion generateBtn() {
+    
       //password length criteria
-      var lenGth() {
+      function lenGth() { 
+        window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
         for (var i = 8; i<= 128; i++) {
-          window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
+          
           if (pwLength < 8) {
             window.alert("Please choose a length of at least 8 characters!");
           }
           else if (pwlength > 128) {
             window.alert("Please choose a length no more that 128 characters!")
           }
-          console.log(pwlenGth);
+          console.log(lenGth);
         }
       }
       
       //verify Uppercase 'yes' or 'no'
       
-        for (var i = 0; i < upperCase.length; i++) {
-          var upperCase = math.floor(math.random() *25 +1)
-          console.log(upperCase);
-          window.prompt("Would you like to include Upper case letters? Type 'Yes' or 'No'");
+      function upperCase() {
+        window.prompt("Would you like to include Upper case letters? Type 'Yes' or 'No'");
+        for (var i = 0; i < upperCase; i++) {
           if (upperCase === "Yes" || upperCase === "YES" || upperCase === "yes") {
             //link to generatebtn somehow
             console.log("yes");
           }
           else {
             console.log("no");
+            break;
           }
+          console.log(upperCase);
         }
-      
+      }
 
-      
-        for (var i = 0; i < lowerCase.length; i++) {
-          var lowerCase = math.floor(math.random() *25 +1)
-          console.log(lowerCase);
-          window.prompt("Would you like to include lower case letters? Type 'Yes' or 'No'");
+      function lowerCase() {
+        window.prompt("Would you like to include lower case letters? Type 'Yes' or 'No'");
+        for (var i = 0; i < lowerCase; i++) {
+          
           if (lowerCase === "Yes" || lowerCase === "YES" || lowerCase === "yes") {
             //link to generate button 
             console.log("yes");
           }
           else {
             console.log("no");
+            break;
           }
+          console.log(lowerCase);
         } 
-      
+      }
       //choose if want to add numbers to password
       
+      function numBers() {
+        window.prompt("Would you like to include numbers? Type 'Yes' or 'No'");
         for (var i = 0; i < numBers.length; i++) {
-          var numBers = math.floor(math.random() *10)
-          console.log(numBers);
-          window.prompt("Would you like to include numbers? Type 'Yes' or 'No'");
+          
           if (numBers === "Yes" || numBers === "YES" || numBers === "yes") {
             console.log("yes");
           }
           else {
             console.log("no");
+            break;
           }
+          console.log(numBers);
         }
-      
+      }
 
-      
+      function specialCharacters() {
         for (var i = 0; i < specialCharacters.length; i++) {
-          var specialCharacters = math.floor(math.random() *6)
-          console.log(specialCharacters);
           window.prompt("Would you like to include special characters? (i.e. @ $ % etc...) Type 'Yes' or 'No'");
           if (specialCharacters === "Yes" || specialCharacters === "YES" || specialCharacters === "yes") {
             console.log("yes")
@@ -81,9 +84,39 @@ window.alert("Please choose your password criteria.")
             //if they do not choose a special character
             window.alert("Please choose at least 1 special character!");
           }
+          console.log(specialCharacters);
         }
-    }  
+      }
+
+
+  function finalString(u,l,n,s) {
+    if(u) {
+    x += upperCase;
+    };
+
+    if(l) {
+      x += lowerCase;
+    };
+
+    if(n) {
+      x += numBers;
+    };
+
+    if(s) {
+      x += specialCharacters;
+    };
+
+    return x;
+  }
+
+  function generatePassword() {
+    var x = "";
+      for (i = 0; i < lenGth; i++) {
+        x += finalString(Math.floor(Math.random() *finalString.length));
+      }
+  }
       
+   
   
 
 // Get references to the #generate element
