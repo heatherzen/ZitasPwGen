@@ -90,21 +90,21 @@ window.alert("Please choose your password criteria.")
 
 
   function finalString(u,l,n,s) {
-    if(u) {
-    x += upperCase;
-    };
+      if(u) {
+        x += upperCase;
+      };
 
-    if(l) {
-      x += lowerCase;
-    };
+      if(l) {
+        x += lowerCase;
+      };
 
-    if(n) {
-      x += numBers;
-    };
+      if(n) {
+        x += numBers;
+      };
 
-    if(s) {
-      x += specialCharacters;
-    };
+      if(s) {
+        x += specialCharacters;
+      };
 
     return x;
   }
@@ -117,7 +117,7 @@ window.alert("Please choose your password criteria.")
   }
       
    
-  
+generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
