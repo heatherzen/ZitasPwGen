@@ -1,5 +1,5 @@
 // Assignment code here
-var pwlenGth = (pwlenGth >= 8 && pwLength <= 128);
+var pwlenGth = (pwlenGth >= 8 && pwLenGth <= 128);
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numBers = ["0", "1", "2", "3", "4", "5","6", "7", "8", "9"];
@@ -11,7 +11,7 @@ window.alert("Please choose your password criteria.")
     
       //password length criteria
       var pwlenGth = function() {
-        for () {
+        for (i=0; i < pwlenGth.length; i++) {
           window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
           if (pwLength < 8) {
             window.alert("Please choose a length of at least 8 characters!");
@@ -72,9 +72,9 @@ window.alert("Please choose your password criteria.")
           }
         }
       }
-    }  
-  }
-}
+      
+  
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
