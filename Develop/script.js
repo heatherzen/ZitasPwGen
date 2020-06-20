@@ -1,121 +1,55 @@
 // Assignment code here
-var lenGth = (lenGth >=8, lenGth <=128);
-var upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
-var lowerCase = "qwertyuiopasdfghjklzxcvbnm";
-var numBers = "0123456789";
-var specialCharacters = "!@#$%&*";
+
+var upperCase = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"];
+var lowerCase = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
+var numBers = ["0","1","2","3","4","5","6","7","8","9"];
+var specialCharacters = ["!","@","#","$","%","&","*"];
+var guarenteedCharacters = [];
+var availableCharacters = [];
 
 
-    
-window.alert("Please choose your password criteria.")
-    
-    
-      //password length criteria
-      window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
-      function lenGth() { 
-        
-        for (var i = 8; i<= 128; i++) {
-          
-          if (lenGth < 8) {
-            window.alert("Please choose a length of at least 8 characters!");
-          }
-          else if (lenGth > 128) {
-            window.alert("Please choose a length no more that 128 characters!")
-          }
-          console.log(lenGth);
-        }
-      }
-      
-      //verify Uppercase 'yes' or 'no'
-    window.prompt("Would you like to include Upper case letters? Type 'Yes' or 'No'");
-      function upperCase() {
-        for (var i = 0; i < upperCase; i++) {
-          if (upperCase === "Yes" || upperCase === "YES" || upperCase === "yes") {
-            //link to generatebtn somehow
-            console.log("yes");
-          }
-          else {
-            console.log("no");
-            break;
-          }
-          console.log(upperCase);
-        }
-      }
+function generatePassword() {
 
-    window.prompt("Would you like to include lower case letters? Type 'Yes' or 'No'");
-      function lowerCase() {
-        for (var i = 0; i < lowerCase; i++) {
-          if (lowerCase === "Yes" || lowerCase === "YES" || lowerCase === "yes") {
-            //link to generate button 
-            console.log("yes");
-          }
-          else {
-            console.log("no");
-            break;
-          }
-          console.log(lowerCase);
-        } 
-      }
-      //choose if want to add numbers to password
-      
-    window.prompt("Would you like to include numbers? Type 'Yes' or 'No'");
-      function numBers() {
-        for (var i = 0; i < numBers.length; i++) {
-          if (numBers === "Yes" || numBers === "YES" || numBers === "yes") {
-            console.log("yes");
-          }
-          else {
-            console.log("no");
-            break;
-          }
-          console.log(numBers);
-        }
-      }
+  var pwLength = 0;
 
-    window.prompt("Would you like to include special characters? (i.e. @ $ % etc...) Type 'Yes' or 'No'");
-      function specialCharacters() {
-        for (var i = 0; i < specialCharacters.length; i++) {
-          if (specialCharacters === "Yes" || specialCharacters === "YES" || specialCharacters === "yes") {
-            console.log("yes")
-          }
-          else {
-            //if they do not choose a special character
-            window.alert("Please choose at least 1 special character!");
-          }
-          console.log(specialCharacters);
-        }
-      }
-
-
-  function finalString(u,l,n,s) {
-      if(u) {
-        x += upperCase;
-      };
-
-      if(l) {
-        x += lowerCase;
-      };
-
-      if(n) {
-        x += numBers;
-      };
-
-      if(s) {
-        x += specialCharacters;
-      };
-
-    return x;
+  while (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
+    pwLength = prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
+    console.log(pwLength);
   }
 
-  function generatePassword() {
-    var x = "";
-      for (i = 0; i < lenGth; i++) {
-        x += finalString(Math.floor(Math.random() *finalString.length));
-      }
+  var upper = confirm("Would you like to include Upper case letters?");
+  var lower = confirm("Would you like to include lower case letters?");
+  var num = confirm("Would you like to include numbers?");
+  var special = confirm("Would you like to include special characters?");
+
+  if (upper) {
+    guarenteedCharacters.push(randomize(upperCase));
+    availableCharacters.push(upperCase);
   }
-      
-   
-generatePassword();
+  if (lower) {
+    guarenteedCharacters.push(randomize(lowerCase));
+    availableCharacters.push(lowerCase);
+  }
+  if (num) {
+    guarenteedCharacters.push(randomize(numBers));
+    availableCharacters.push(numBers);
+  }
+  if (special) {
+    guarenteedCharacters.push(randomize(specialCharacters));
+    availableCharacters.push(specialCharacters);
+  }
+  
+  for (var i = guarenteedCharacters.length + 1; i < pwLength; i++) {
+    guarenteedCharacters.push(randomize(availableCharacters));
+  }
+
+  return guarenteedCharacters.join("");
+}
+
+function randomize(characterString) {
+  var randomIndex = Math.floor(Math.random() * characterString.length);
+  return characterString[randomIndex]
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
