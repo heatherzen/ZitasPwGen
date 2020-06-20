@@ -1,10 +1,8 @@
 // Assignment code here
-
 var upperCase = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"];
 var lowerCase = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
 var numBers = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharacters = ["!","@","#","$","%","&","*"];
-var guarenteedCharacters = [];
 var availableCharacters = [];
 
 
@@ -23,27 +21,41 @@ function generatePassword() {
   var special = confirm("Would you like to include special characters?");
 
   if (upper) {
-    guarenteedCharacters.push(randomize(upperCase));
-    availableCharacters.push(upperCase);
-  }
-  if (lower) {
-    guarenteedCharacters.push(randomize(lowerCase));
-    availableCharacters.push(lowerCase);
-  }
-  if (num) {
-    guarenteedCharacters.push(randomize(numBers));
-    availableCharacters.push(numBers);
-  }
-  if (special) {
-    guarenteedCharacters.push(randomize(specialCharacters));
-    availableCharacters.push(specialCharacters);
-  }
-  
-  for (var i = guarenteedCharacters.length + 1; i < pwLength; i++) {
-    guarenteedCharacters.push(randomize(availableCharacters));
+
+    for (var i=0; i < upperCase.length; i++) {
+      availableCharacters.push(upperCase[i]);
+    }
   }
 
-  return guarenteedCharacters.join("");
+  if (lower) {
+  
+    for (var i=0; i < lowerCase.length; i++) {
+    availableCharacters.push(lowerCase[i]);
+    }
+  }
+
+  if (num) {
+    
+    for (var i=0; i < numBers.length; i++) {
+    availableCharacters.push(numBers[i]);
+    }
+  }
+
+  if (special) {
+    
+    for (var i=0; i < specialCharacters.length; i++) {
+    availableCharacters.push(specialCharacters[i]);
+    }
+  }
+
+  console.log(availableCharacters)
+  
+  var pass = ''
+  for (var i = 0; i < pwLength; i++){
+    pass+=randomize(availableCharacters);
+  }
+    console.log(pass)
+  return pass
 }
 
 function randomize(characterString) {
