@@ -1,5 +1,5 @@
 // Assignment code here
-var lenGth = "";
+var lenGth = (lenGth >=8, lenGth <=128);
 var upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
 var lowerCase = "qwertyuiopasdfghjklzxcvbnm";
 var numBers = "0123456789";
@@ -11,14 +11,15 @@ window.alert("Please choose your password criteria.")
     
     
       //password length criteria
+      window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
       function lenGth() { 
-        window.prompt("Choose the length of your password. (It must be a minimum of 8 charactors and a maximum of 128 characters in length).");
+        
         for (var i = 8; i<= 128; i++) {
           
-          if (pwLength < 8) {
+          if (lenGth < 8) {
             window.alert("Please choose a length of at least 8 characters!");
           }
-          else if (pwlength > 128) {
+          else if (lenGth > 128) {
             window.alert("Please choose a length no more that 128 characters!")
           }
           console.log(lenGth);
@@ -26,9 +27,8 @@ window.alert("Please choose your password criteria.")
       }
       
       //verify Uppercase 'yes' or 'no'
-      
+    window.prompt("Would you like to include Upper case letters? Type 'Yes' or 'No'");
       function upperCase() {
-        window.prompt("Would you like to include Upper case letters? Type 'Yes' or 'No'");
         for (var i = 0; i < upperCase; i++) {
           if (upperCase === "Yes" || upperCase === "YES" || upperCase === "yes") {
             //link to generatebtn somehow
@@ -42,10 +42,9 @@ window.alert("Please choose your password criteria.")
         }
       }
 
+    window.prompt("Would you like to include lower case letters? Type 'Yes' or 'No'");
       function lowerCase() {
-        window.prompt("Would you like to include lower case letters? Type 'Yes' or 'No'");
         for (var i = 0; i < lowerCase; i++) {
-          
           if (lowerCase === "Yes" || lowerCase === "YES" || lowerCase === "yes") {
             //link to generate button 
             console.log("yes");
@@ -59,10 +58,9 @@ window.alert("Please choose your password criteria.")
       }
       //choose if want to add numbers to password
       
+    window.prompt("Would you like to include numbers? Type 'Yes' or 'No'");
       function numBers() {
-        window.prompt("Would you like to include numbers? Type 'Yes' or 'No'");
         for (var i = 0; i < numBers.length; i++) {
-          
           if (numBers === "Yes" || numBers === "YES" || numBers === "yes") {
             console.log("yes");
           }
@@ -74,9 +72,9 @@ window.alert("Please choose your password criteria.")
         }
       }
 
+    window.prompt("Would you like to include special characters? (i.e. @ $ % etc...) Type 'Yes' or 'No'");
       function specialCharacters() {
         for (var i = 0; i < specialCharacters.length; i++) {
-          window.prompt("Would you like to include special characters? (i.e. @ $ % etc...) Type 'Yes' or 'No'");
           if (specialCharacters === "Yes" || specialCharacters === "YES" || specialCharacters === "yes") {
             console.log("yes")
           }
